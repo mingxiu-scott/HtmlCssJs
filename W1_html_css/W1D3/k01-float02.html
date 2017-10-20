@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动,inline-block特性</title>
+    <style type="text/css">
+        .big{
+            width: 800px;
+            height: 500px;
+            border: 2px solid red;
+        }
+        .small1{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+        .samll2{
+            width: 100px;
+            height: 100px;
+            background-color: #4caf50;
+        }
+        .small3{
+            background-color: violet;
+        }
+        .span-text{
+            background-color: #555555;
+            width: 100px;
+            height: 100px;
+            /*
+            原本span是行内元素,设置宽和高是不起作用的,
+            但是有了float属性之后,该span表现为:inline-block的特性,
+            可以设置宽和高
+            */
+        }
+        .float-left{
+            float: right;
+        }
+        /*
+            当给div1和div2加上float属性的时候,原本为块级元素的div,
+            会表现出行内元素的特性,也就是具有inline-block的特性,
+            div1和div2都是设定了固定的高度,
+        */
+    </style>
+</head>
+<body>
+    <div class="big">
+        <div class="small1 float-left">
+            div1
+        </div>
+        <div class="samll2 float-left">
+            div2
+        </div>
+        <span class="span-text float-left">this is the text in span</span>
+        <div class="small3 float-left">
+            <h1>asdfasdf</h1>
+            <h1>asdfasdf</h1>
+            <h1>asdfasdf</h1>
+            <h1>asdfasdf</h1>
+            <h1>asdfasdf</h1>
+            <h1>asdfasdf</h1>
+        </div>
+    </div>
+</body>
+</html>

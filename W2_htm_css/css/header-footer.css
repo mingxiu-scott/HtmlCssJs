@@ -1,0 +1,130 @@
+/*头部*/
+/*登录部分*/
+.header .header-login{
+    background-color:#333333 ;
+    height: 30px;
+    color: #cccccc;
+    line-height: 28px;
+}
+.header .header-login span {
+
+    margin-right: 20px;
+}
+.header .header-login a{
+    /*margin-left: 20px;*/
+    color: #cccccc;
+    margin-right: 3px ;
+}
+
+/*登录部分结束*/
+
+/*搜索部分*/
+.header .header-search{
+    background-color: white;
+}
+
+.header .header-search img{
+
+    width: 350px;
+    height: 100px;
+    margin-right: 24px;
+
+    vertical-align: middle;
+}
+
+.header .header-search .container .header-serach-right span a{
+    font-size: 14px;
+    color: #666666;
+}
+
+.header .header-search .container .header-search-left{
+
+    border:2px solid #ef1010 ;
+    width: 424px;
+    height: 40px;
+
+    margin-top: 20px;
+}
+
+.header-search .container .header-search-left form div select{
+    width: 60px;
+    height: 36px;
+    padding-left: 8px;
+
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("../images/jiao.jpg");
+    background-repeat: no-repeat;
+
+    background-position: right;
+}
+.header-search .container .header-search-left form div input[type="text"]{
+
+    border: none;
+    outline: none;
+}
+.header-search .container .header-search-left form div .text{
+    margin-left: 0px;
+}
+.header-search .container .header-search-left form  .text a{
+    margin-right: 6px;
+}
+/*搜索部分结束*/
+
+/*导航栏*/
+.header-nav .container ul{
+    list-style-type: none;
+}
+.header-nav .container ul li{
+    float: left;
+}
+.header-nav{
+    background-color: #ef1010;
+    height: 40px;
+    border-top: 1px solid  #cccccc;
+}
+.header-nav .container ul li a{
+    color: #ffffff;
+    font-size: 16px;
+
+    display: block;
+
+    padding: 0 25px;
+
+    line-height: 38px;
+
+}
+.header-nav .container ul li a.active{
+    background-color: #cc0000;
+}
+.header-nav .container ul li a:hover{
+    background-color: #cc0000;
+
+}
+
+/*导航栏结束*/
+/*头部结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

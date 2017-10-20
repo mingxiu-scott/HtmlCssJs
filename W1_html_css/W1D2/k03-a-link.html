@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a链接的四个伪类以及他们的顺序</title>
+    <style>
+
+        a:link {
+            /*平常状态,正常的链接颜色*/
+            color: red;
+        }
+
+        a:visited {
+            /*访问完成链接之后的颜色*/
+            color: gold;
+        }
+
+        a:hover {
+            /*鼠标悬停在链接的上面的颜色*/
+            color: blue;
+        }
+
+        a:active {
+            /*鼠标点击下去的一瞬的改变的颜色*/
+            color: #111111;
+        }
+
+        /*当active 和hover 之前的时候,效果就不显示了*/
+        /*最好的顺序就是 link visited hover active*/
+        /*总结,当active在hover前面的时候,效果不显示(我测试出这种结果而已,不知道还有没其他情况)*/
+    </style>
+</head>
+<body>
+<a href="http://www.weibo.com">to 淘宝</a>
+
+<a href="#text16">to text16</a><br>
+<!--链接到文档中的指定位置,通过给指定的元素加一个id唯一标示这个元素
+    然后如下面的代码,通过a来链接到它
+-->
+<a href="#mao">to mao</a>
+<h1>text1</h1>
+<h1>text2</h1>
+<h1>text3</h1>
+<h1>text4</h1>
+<h1>text5</h1>
+<h1>text6</h1>
+<h1>text7</h1>
+<h1>text8</h1>
+<h1>text9</h1>
+<h1>text10</h1>
+<h1>text12</h1>
+<h1>text13</h1>
+<h1>text14</h1>
+<h1>text15</h1>
+<h1 id="text16">text16</h1>
+<a name="mao">mao</a>
+</body>
+</html>

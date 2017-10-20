@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slide {
+            width: 930px;
+            margin: 0 auto;
+        }
+
+        .slide-big img {
+            width: 100%;
+        }
+
+        .slide-small {
+            width: 100%;
+            text-align: justify;
+        }
+
+        .slide-small a {
+            display: inline-block;
+            background-color: black;
+            position: relative;
+        }
+
+        .slide-small img {
+            display: block;
+            width: 226px;
+            height: 88px;
+            opacity: 0.5;
+
+            position: relative;
+
+        }
+
+        .slide-small .mouseHover {
+            opacity: 1;
+        }
+
+        .slide-small .triangle::before {
+            content: "";
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            z-index: 100;
+
+            -webkit-transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            transform: translate(-50%);
+
+        }
+    </style>
+    <script src="js/EventHandle.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            var bigImg = document.getElementById("big-img");
+
+            var smallBox = document.querySelector(".slide-small");
+
+            var smallImgList = document.querySelectorAll(".slide-small img");
+
+            var timeId = null;
+
+            var currentImgIndex = 0;
+
+            timeId = setInterval(autoShow, 1000);
+
+            function autoShow() {
+
+                smallImgList[currentImgIndex].parentElement.classList.remove("triangle");
+
+                smallImgList[currentImgIndex].classList.remove("mouseHover");
+
+
+                currentImgIndex = currentImgIndex < smallImgList.length - 1 ? ++currentImgIndex : 0;
+
+                console.log(currentImgIndex);
+
+                bigImg.src = smallImgList[currentImgIndex].src;
+
+                smallImgList[currentImgIndex].parentElement.classList.add("triangle");
+
+                smallImgList[currentImgIndex].classList.add("mouseHover");
+
+            }
+
+            EventHandle.addEventHandle(smallBox, "mouseover", smallBoxMouseover);
+
+            function smallBoxMouseover(event) {
+                event = EventHandle.getEvent(event);
+
+                var target = EventHandle.getTarget(event);
+
+                if (target.tagName == "IMG") {
+                    imgToggle(target);
+                }
+            }
+
+            function imgToggle(img) {
+                clearInterval(timeId);
+
+                if (img != smallImgList[currentImgIndex]) {
+
+                    bigImg.src = img.src;
+
+                    img.classList.add("mouseHover");
+
+                    img.parentElement.classList.add("triangle");
+
+                    smallImgList[currentImgIndex].classList.remove("mouseHover");
+
+                    smallImgList[currentImgIndex].parentElement.classList.remove("triangle");
+
+                    currentImgIndex = getImgIndex(img);
+                }
+            }
+
+            function getImgIndex(img) {
+                for (var i = 0; i < smallImgList.length; i++) {
+                    if (smallImgList[i] === img) {
+                        return i;
+                    }
+                }
+            }
+
+            EventHandle.addEventHandle(smallImgBox, "mouseout", smallImgMouseout);
+            function smallImgMouseout(event) {
+                event = EventHandle.getEvent(event);
+
+                var target = EventHandle.getTarget(event);
+
+                if (target.tagName == "IMG") {
+                    timeId = setInterval(autoShow, 2000);
+                }
+            }
+
+
+        };
+    </script>
+
+</head>
+<body>
+<div class="slide">
+
+    <!-- 大轮播图 -->
+    <div class="slide-big">
+        <a href="#">
+            <img src="images/1470393694185.jpg" alt="" id="big-img">
+        </a>
+    </div>
+
+    <!-- 小轮播图 -->
+    <div class="slide-small">
+        <a href="#" class="triangle">
+            <img src="images/1470393694185.jpg" class="mouseHover" height="270"
+                 width="930"/></a>
+        <a href="#"><img src="images/1470393819143.jpg" height="270" width="930"/></a>
+        <a href="#"><img src="images/1470393881718.jpg" height="270" width="930"/></a>
+        <a href="#"><img src="images/1470393928370.jpg" height="269" width="931"/></a>
+    </div>
+</div>
+
+</body>
+</html>

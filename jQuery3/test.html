@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <style>
+        div { border: 2px solid blue; }
+        p { background:yellow; margin:4px; }
+    </style>
+
+</head>
+<body>
+<div class=".box" style="height: 200px;width: 200px;">
+    <button>wrap/unwrap</button>
+</div>
+
+<p>Hello</p>
+<p>cruel</p>
+<p>World</p>
+<script>
+    $(function () {
+
+        $(".box").on("click", "button", function(event) {
+            $(event.delegateTarget).css("background-color", "red");
+        });
+
+    });
+</script>
+
+</body>
+</html>

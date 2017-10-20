@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/EventHandle.js"></script>
+    <style>
+
+        body{
+            height: 2000px;
+        }
+        #topBtn{
+            background-color: red;
+            color: white;
+            width: 50px;
+            height: 50px;
+
+            position: fixed;
+
+            right: 50px;
+
+            bottom: 50px;
+            display: none;
+
+        }
+
+    </style>
+    <script>
+
+        window.onload = function () {
+
+
+            var topBtn = document.getElementById("topBtn");
+
+//            EventHandle.addEventHandle(topBtn,"scroll",windowScroll);
+
+            EventHandle.addEventHandle(topBtn,"scroll" ,windowScroll);
+
+            function windowScroll() {
+
+                alert("adsfa");
+//                当滚动超出20px的时候,显示返回顶部的按钮
+                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                    topBtn.style.display = "block";
+                }else {
+                    topBtn.style.display = "none";
+                }
+            }
+
+//            给回到顶部按钮添加点击事件
+
+            EventHandle.addEventHandle(topBtn,'click',toTopClick);
+
+            function toTopClick() {
+
+//                alert("adfsa");
+//                适配浏览器,这两个值为0
+
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+
+                this.style.display = "none";
+
+//                document.documentElement 代表docment的根节点
+
+            }
+
+        };
+
+
+
+
+    </script>
+</head>
+<body>
+<div id="topBtn">
+    to top
+</div>
+</body>
+</html>

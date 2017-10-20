@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #minDiv {
+            width: 350px;
+            height: 350px;
+            border: 1px solid black;
+            float: left;
+            position: relative;
+        }
+
+        #mengDiv {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: 150px;
+            opacity: 0.5;
+            background-color: lightgray;
+            display: none;
+        }
+
+        #maxDiv {
+            width: 400px;
+            height: 400px;
+            float: left;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #maxDiv img {
+            position: absolute;
+        }
+    </style>
+    <script src="js/EventHandle.js"></script>
+    <script>
+        window.onload = function () {
+
+//            获取元素
+            var minDiv = document.getElementById("minDiv");
+
+            var mengDiv = document.getElementById("mengDiv");
+
+            var maxDiv = document.getElementById("maxDiv");
+
+            var bigImg = document.querySelector("#maxDiv img");
+
+            EventHandle.addEventHandle(minDiv, 'mouseover', minDivMouseover);
+
+            EventHandle.addEventHandle(minDiv, "mouseout", minDivMouseout);
+
+            EventHandle.addEventHandle(minDiv, "mousemove", minDivMousemove);
+
+            //给minDiv添加鼠标已入事件
+            function minDivMouseover() {
+                mengDiv.style.display = "block";
+                maxDiv.style.display = "block";
+            }
+
+            //给minDiv添加鼠标移出事件
+
+            function minDivMouseout() {
+                mengDiv.style.display = "none";
+                maxDiv.style.display = "none";
+            }
+
+            //给minDiv添加鼠标移动事件
+            function minDivMousemove(event) {
+
+                event = EventHandle.getEvent(event);
+
+
+                var newLeft = event.clientX - parseInt(mengDiv.offsetWidth / 2);
+
+                var newTop = event.clientY - parseInt(mengDiv.offsetHeight / 2);
+
+
+                //判左边的范围
+
+                newLeft = newLeft < 0 ? 0 : newLeft;
+
+                //判读右边
+                var rightBotton = minDiv.offsetWidth - mengDiv.offsetWidth;
+
+                newLeft = newLeft > rightBotton ? rightBotton : newLeft;
+
+                //判断上边
+
+                newTop  = newTop < 0 ? 0 : newTop;
+
+                //判断下方
+
+                var bottom = minDiv.offsetHeight - mengDiv.offsetHeight;
+
+                newTop = newTop < bottom ? newTop : bottom;
+
+                mengDiv.style.left = newLeft + "px";
+
+                mengDiv.style.top = newTop + "px";
+
+                //判断图片的位置
+
+                console.log(bigImg);
+
+                var leftProportion = newTop / minDiv.offsetHeight;
+
+                var topProportion = newLeft / minDiv.offsetWidth;
+
+                var bigLeft = bigImg.offsetWidth * leftProportion;
+
+                var bigTop = bigImg.offsetHeight * topProportion;
+
+                bigImg.style.left = -bigLeft + "px";
+
+                bigImg.style.top = -bigTop + "px";
+            }
+
+        };
+    </script>
+</head>
+<body>
+<div id="minDiv">
+    <div id="mengDiv"></div>
+    <img src="images/min.png"/>
+</div>
+<div id="maxDiv">
+    <img src="images/max.png"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>preload</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0%;
+            padding: 0%;
+        }
+        .loading{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left:0;
+            background-color: #eee;
+            text-align: center;
+            font-size: 30px;
+            padding-top: 300px;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/test.js"></script>
+    <script>
+        $(function () {
+
+
+            /* 图片路径数组 */
+            var imgs = [
+                'http://img3.imgtn.bdimg.com/it/u=4092353190,3027758101&fm=26&gp=0.jpg',
+                'http://img3.imgtn.bdimg.com/it/u=4240773339,505762144&fm=26&gp=0.jpg',
+                'http://img3.imgtn.bdimg.com/it/u=1200651406,2767282547&fm=26&gp=0.jpg',
+                'http://img2.imgtn.bdimg.com/it/u=1778223052,3505537442&fm=26&gp=0.jpg'
+
+            ];
+
+
+            var index = 0,
+                    lenght = imgs.length,
+                    count = 0,
+                    $progress = $('.progress');
+            $.preload(imgs, {
+                each: function () {
+                    $progress.html(Math.round((count + 1) / lenght * 100) + '%');
+                },
+
+                all: function () {
+                    $('.loading').hide();
+                    document.title = '1/' + lenght;
+                },
+
+            });
+
+            // 点击button时, 替换图片的路径
+
+            $('#box .btn').on('click', function () {
+
+                if ($(this).data('control') === 'prev') {
+                    // 如果data-control的属性值为 prev, 则代表点击的是上一页按钮
+
+                    /**
+                     * Math.max(v1, v2);
+                     * 在v1和v2中返回较大的值.
+                     * */
+                    index = Math.max(0, --index);
+
+                } else if($(this).data('control') === 'next') {
+
+                    /*
+                     * Math.min()返回较小的值.
+                     * */
+                    index = Math.min(imgs.length - 1, ++index);
+                }
+
+                // 给浏览器窗口标题赋值
+                $('title').html((index + 1) + '/' + imgs.length);
+                var src = imgs[index];
+
+                // 设置图片 src 的属性值.
+                $('#box .bigImg').attr('src', src);
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="http://img2.imgtn.bdimg.com/it/u=1724337809,3334736965&fm=26&gp=0.jpg" alt="" class="bigImg">
+    <div>
+        <!--javascript:void(0) 去掉a的链接效果-->
+        <a href="javascript:void(0)" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:void(0)" class="btn" data-control="next">下一页</a>
+    </div>
+</div>
+
+<div class="loading">
+    <p class="progress">0%</p>
+</div>
+</body>
+</html>

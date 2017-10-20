@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing属性</title>
+    <style type="text/css">
+
+        *{
+            box-sizing: border-box;
+        }
+        .big {
+            width: 900px;
+            height: 200px;
+        }
+        .right{
+            width: 50%;
+            background-color: gold;
+
+            float: left;
+        }
+        .left{
+            width: 50%;
+            background-color: #4caf50;
+            float: left;
+
+            padding: 1px;
+        }
+
+        /*
+            box-sizing这个属性初始值为content-box,然后有一个border-box值;
+            着两值得区别在于计算盒子模型的宽度的差别:如下面列子,
+            当我设置为content-box这个属性的时候,原本是两个宽度都为50%的left和right的div会占满
+            父元素的宽度,我在left的div上加了:padding=1px,这时候,right这个div就会被挤到了下一行,
+            所以这个盒子的宽度的计算为:magin + padding + border + width.
+
+            当box-sizing设置为border-box时,计算方式就不一样了,border,padding的宽度就会包含在width里面,
+            所以rightdiv不会换行
+
+        */
+    </style>
+</head>
+<body>
+    <div class="big">
+        <div class="left">
+            left div
+        </div>
+        <div class="right">
+            right div
+        </div>
+    </div>
+</body>
+</html>

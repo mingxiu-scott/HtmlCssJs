@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div { width:60px; height:60px; margin:5px; float:left; }
+    </style>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+
+        /**
+         * ready()和window.onload的区别
+         *
+         *
+         * 正常情况下,是window.onload先执行*/
+        /**文档准备就绪,*/
+        /**jQuery当中只有唯一两个全局变量
+         *
+         * jQuery()函数是定义在全局对象中的变量,也就是全局变量
+         *
+         * 给jQuery定义了一个别名$,是jQuery中第二个全局变量
+         *
+         * */
+        $(document).ready(function () {
+           /*** 搜索框*/
+//           var $l = $('p');
+//           $('ul').prepend($l);
+            $("div").click(function () {
+                var color = $(this).css("background-color");
+        $("#result").html("That div is <span style='color:" +
+                color + ";'>" + color + "</span>.");
+                $('#result')
+            });
+        });
+    </script>
+</head>
+<body>
+<span id="result"></span>
+<div style="background-color:blue;"></div>
+<div style="background-color:yellow;"></div>
+
+<div style="background-color:orange;"></div>
+<div style="background-color:#f11;"></div>
+<script>
+
+</script>
+</body>
+</html>

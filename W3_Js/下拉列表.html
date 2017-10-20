@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #divselect {
+            width: 186px;
+            margin: 80px auto;
+            position: relative;
+            z-index: 10000;
+        }
+
+        #divselect div {
+            width: 150px;
+            height: 24px;
+            line-height: 24px;
+            display: block;
+            color: #807a62;
+            cursor: pointer;
+            font-style: normal;
+            padding-left: 4px;
+            padding-right: 30px;
+            border: 1px solid #333333;
+            background: url(jiao.jpg) no-repeat right center;
+        }
+
+        #divselect ul {
+            width: 184px;
+            border: 1px solid #333333;
+            background-color: #ffffff;
+            position: absolute;
+            z-index: 20000;
+            margin-top: -1px;
+            display: none;
+        }
+
+        #divselect ul li {
+            height: 24px;
+            line-height: 24px;
+        }
+
+        #divselect ul li a {
+            display: block;
+            height: 24px;
+            color: #333333;
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <script src="js/EventHandle.js"></script>
+    <script>
+        window.onload = function () {
+
+            var divSelect = document.getElementById("divselect");
+
+            var aList = document.getElementsByTagName("a");
+
+            var title = document.querySelector("#divselect div");
+
+            var ul = document.querySelector("#divselect ul");
+
+            EventHandle.addEventHandle(title, "click", titleClick);
+
+            EventHandle.addEventHandle(document, "click", blankClick);
+
+            var aIndex = -1;
+
+
+            function blankClick(event) {
+
+                event = EventHandle.getEvent(event);
+
+//                var target = EventHandle.getTarget(event);
+
+                ul.style.display = "none";
+
+            }
+
+            function titleClick(event) {
+
+                event = EventHandle.getEvent(event);
+
+                ul.style.display = "block";
+
+                EventHandle.stop(event);
+
+
+                EventHandle.addEventHandle(document, "keyup", documentKeyup);
+
+            }
+
+            function documentKeyup(event) {
+
+                event = EventHandle.getEvent(event);
+
+                for (var i = 0; i < aList.length; i++) {
+
+                    aList[i].style.backgroundColor = "#fff";
+                }
+
+                switch (event.keyCode) {
+                    case 40: {
+                        aIndex++;
+
+                        if (aIndex >= aList.length -1 ) {
+                            aIndex = 0;
+                        }
+                        console.log(aIndex);
+                        aList[aIndex].style.backgroundColor = "#ccc";
+                        break;
+                    }
+                    case 38: {
+                        aIndex--;
+
+                        if(aIndex < 0){
+                            aIndex = aList.length -1;
+                        }
+                        aList[aIndex].style.backgroundColor = "#ccc";
+
+                        break;
+                    }
+                    case 13 : {
+                        if(aIndex != -1){
+                            title.innerHTML = aList[aIndex].innerHTML;
+                        }
+                        ul.style.display = "none";
+
+                        break;
+                    }
+
+                }
+
+            }
+
+
+        };
+
+    </script>
+</head>
+<body>
+<div id="divselect">
+
+    <div>请选择分类</div>
+    <ul>
+        <li id="li"><a href="#">ASP开发</a></li>
+        <li><a href="#">.NET开发</a></li>
+        <li><a href="#">PHP开发</a></li>
+        <li><a href="#">Javascript开发</a></li>
+        <li><a href="#">Java特效</a></li>
+    </ul>
+</div>
+</body>
+</html>

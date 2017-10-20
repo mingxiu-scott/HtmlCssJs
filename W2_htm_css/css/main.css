@@ -1,0 +1,291 @@
+/*中间内容区域*/
+
+/*中间第一块内容*/
+/*左边内容*/
+.main .main-first {
+    margin-top: 20px;
+    /*background-color: white;*/
+}
+
+.main .main-first .main-first-left div:first-child {
+    width: 250px;
+    background-color: white;
+    /*padding-bottom: 10px;*/
+    margin-top: 20px;
+}
+
+.main .main-first .main-first-left div div div:nth-child(2) {
+    border-bottom: 1px solid #e5e5e5;
+
+    padding-bottom: 20px;
+    margin-left: 20px
+}
+
+.main .main-first .main-first-left div div div:nth-child(2) a {
+    line-height: 24px;
+    margin-right: 9px;
+}
+
+.main .main-first .main-first-left div div div:nth-child(2) a:hover {
+    color: #ef1010;
+}
+
+.main .main-first .main-first-left div:nth-child(2) {
+    margin-top: 20px;
+}
+
+.main .main-first .main-first-left div:nth-child(2) a img {
+    height: 301px;
+    width: 252px;
+}
+
+/*左边内容结束*/
+
+/*右边内容*/
+/*右边轮播图*/
+.main .main-first-right {
+    width: 930px;
+    margin-left: 17px;
+    /*background-color: white;*/
+
+    margin-top: 20px;
+}
+
+.main .main-first .main-first-right div:first-child div:first-child {
+    position: relative;
+}
+
+#position-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.main .main-first .main-first-right div:first-child div:nth-child(2) a img {
+    width: 226px;
+    height: 88px;
+    margin-right: 3px;
+    /*margin-top: 3px;*/
+
+}
+
+.main .main-first .main-first-right div:first-child div:nth-child(2) {
+    /*margin-top: 20px;*/
+    margin-bottom: 20px;
+}
+
+.main .main-first .main-first-right div:first-child {
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+/*右边轮播图结束*/
+
+/*右边招聘信息*/
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child div:nth-child(2) a:hover {
+    /*color: red;*/
+    /*line-height: 26px;*/
+    text-decoration: blink;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child div:nth-child(2) a {
+    color: #3c3c3c;
+    /*padding-top: 10px;*/
+    display: inline-block;
+    margin-right: 10px
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child
+div:nth-child(4) div b, span {
+    font-size: 14px;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child
+div:nth-child(4) div b {
+    color: red;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child
+div:nth-child(4) div div {
+    margin-right: 30px;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child
+div:nth-child(4) .float-left:hover {
+    background-color: silver;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child .button div {
+
+    margin: 20px 20px;
+    font-size: 16px;
+    text-align: center;
+    width: 892px;
+    height: 51px;
+    color: black;
+    background-color: #cccccc;
+    line-height: 46px;
+}
+
+.main .main-first .main-first-right .main-first-right-zhaoping div:first-child .button div:hover {
+    background-color: #a9a6a6;
+}
+
+/*右边招聘信息结束*/
+/*右边内容结束*/
+/*中间第一块内容结束*/
+
+/*中间第二块内容*/
+.main .main-second div {
+    background-color: white;
+}
+
+.main .main-second {
+
+    position: relative;
+    margin-top: 20px;
+}
+
+#main-second-left {
+    position: absolute;
+    top: 137px;
+    left: -37px;
+}
+
+#main-second-right {
+    position: absolute;
+    top: 137px;
+    right: -37px;
+}
+
+.main .main-second div div:nth-child(2) div:first-child img {
+    width: 176px;
+    height: 100px;
+    margin-right: 13px;
+    margin-bottom: 5px;
+}
+
+.main .main-second div div:nth-child(2) {
+    margin-left: 28px;
+    margin-bottom: 20px;
+}
+
+/*中间第二块内容结束*/
+
+/*中间第三块内容*/
+
+.main-three {
+    margin-top: 20px;
+}
+
+.main .main-three div:first-child {
+    /*margin-top: 20px;*/
+    /*background-color: white;*/
+    padding-top: 5px;
+}
+
+.main .main-three div div:nth-child(2) div span:first-child {
+    display: inline-block;
+    color: white;
+    background-color: red;
+    width: 20px;
+    height: 40px;
+}
+
+.main .main-three div div {
+    background-color: white;
+}
+
+#big-left-div {
+    width: 1160px;
+    /*float: left;*/
+    border: 1px solid red;
+    position: absolute;
+    transition: width 1s;
+
+    /*display: none;*/
+
+
+}
+
+#big-right-div {
+    width: 1160px;
+    /*float: left;*/
+    border: 1px solid red;
+    position: absolute;
+
+    transition: width 1s;
+}
+
+
+
+/*@keyframes leftDiv {*/
+
+    /*from{*/
+        /*left: 0;*/
+        /*top: 0;*/
+    /*}*/
+    /*50%{*/
+        /*top: 0;*/
+        /*left: -1250px;*/
+    /*}*/
+/*}*/
+/*@keyframes rightDiv {*/
+
+    /*from{*/
+        /*left: 1250px;*/
+        /*top: 0;*/
+    /*}*/
+    /*50%{*/
+        /*top: 0;*/
+        /*left: -25px;*/
+    /*}*/
+
+/*}*/
+
+/*中间第三课内容结束*/
+
+/*中间内容区域结束*/
+
+/*尾部*/
+/*友情链接*/
+.footer .youqinglianjie {
+    border-top: 1px solid #cccccc;
+    color: #383636;
+    background-color: #f6f6f6;
+    height: 55px;
+    line-height: 55px;
+}
+
+/*友情链接结束*/
+.footer .wenben {
+    background-color: #333333;
+    height: 150px;
+}
+
+.footer .wenben .container .float-left {
+    margin-top: 35px;
+    margin-bottom: 23px;
+}
+
+.footer .wenben .container .float-left a, span {
+    color: #cccccc;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.footer .wenben .container .float-right {
+    margin-top: 50px;
+}
+
+/*尾部结束*/
+
+
+
+
+
+
+
+
+
+

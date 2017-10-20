@@ -1,0 +1,17 @@
+body{
+    font-family: "Microsoft YaiHei", sans-serif;
+    font-size: 12px;
+    color: #000000;
+    background-color: #f6f6f6;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+a{
+    color: #666666;
+    font-size: 14px;
+    text-decoration: none;
+}

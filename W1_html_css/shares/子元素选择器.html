@@ -1,0 +1,30 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素选择器</title>
+    <style>
+        div > span{
+            color: red;
+        }
+        /*
+
+        后代选择器,选择div 后中的ul,ul后代中的li元素
+
+        */
+        div > ul > li{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>texxt</li>
+        </ul>
+        <span>
+            text in span
+        </span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器的优先级</title>
+    <style>
+
+        div.div01 ul li {
+            color: blue ;
+        }
+
+        /*.div01 ul li{*/
+            /*color: red;*/
+        /*}*/
+
+        div.div01 ul li{
+
+            color:violet !important;
+            /*重要样式表的优先级高于一般开发者的样式表*/
+        }
+        /*
+
+            总结:优先级从高到低
+            1.重要用户样式表
+            2.重要开发者样式表
+            3.一般开发者样式表
+            4.一般用户样式表
+        */
+        div.div01  li{
+            color: red;
+        }
+
+        /*
+            选择器的特殊性,是根据写法来决定的,以下面的规则决定:
+            元素,伪元素为个位级别;类,伪类为十位级别;id为百位级别;
+            内联样式为千位级别.
+            如写法
+            div.divo1 ul li 计算为13
+
+            div.divo1 li 计算为12,所以选择为13的来修饰下面的文本颜色
+        */
+    </style>
+</head>
+<body>
+    <div class="div01">
+        <ul class="ul01">
+            <li class="li01">text in li</li>
+        </ul>
+    </div>
+</body>
+</html>

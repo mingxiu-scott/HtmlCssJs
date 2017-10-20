@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直外边距</title>
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*padding: 10px;*/
+
+            margin: 1px;
+            /*padding: 10px;*/
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+        /*
+            垂直外边距折叠现象(两个块级元素没有设置padding border属性值的时候),如下面的代码,
+            当去除body的内外边距,还有设置div2的内边距为10px时
+            最终发现正div1的外边距为10px,这就是外边距折叠现象.
+            当发生折叠的时候,div1的外边距我设置为1px,当时,最终整个div1块的外边距只有左右是1px
+            上下方向为10px,所以当发生垂直外边距的时候,是取两个外边距中的最大的那个.
+
+            当给div1设置了一个padding=1px的属性之后,这种现象消失
+        */
+    </style>
+</head>
+<body>
+
+    <div class="div1">
+        <div class="div2">
+        </div>
+    </div>
+
+</body>
+</html>

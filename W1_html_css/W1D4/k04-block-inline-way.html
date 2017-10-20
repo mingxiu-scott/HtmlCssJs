@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块元素和内联元素的上下内边距的渲染方式</title>
+    <style>
+        p{
+            background-color: #4caf50;
+            padding: 50px;
+        }
+        span{
+            background-color: gold;
+            padding: 50px;
+        }
+        /*
+            块级元素p,当设置padding=50px的时候,
+            它的文本内容距离p元素的边距离为50px(文本会变化位置).
+
+            内联元素span,当设置padding=50px时,
+            发现文本内容的位置不会变,只是span的变大了50px,而且还会把其他的元素的内容覆盖了
+
+            这就是块级和内联元素的的上下内边距的渲染方式的区别
+
+            所以在写导航栏的时候,应该把a元素设置为块级元素.
+        */
+    </style>
+</head>
+<body>
+    <p>this is p</p>
+    <span>this is span</span>
+</body>
+</html>

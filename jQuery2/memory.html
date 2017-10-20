@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>memory</title>
+    <script>
+        //创建原型变量
+        var str01 = 'Hello',
+                num01 = 12;
+
+        var str02 = str01,
+                num02 = num01;
+        /** *******************8*/
+        str02 = 'World';
+        num02 = '23';
+        console.log(str01);
+        console.log(num01);
+
+        var person ={
+            name:'tom',
+            age:12,
+            say:function () {
+                console.log('你好');
+            },
+        };
+/** **************/
+        var per01 = person;
+        console.log('1. pero1没有改变');
+        console.log('persion:'+person.name);
+        console.log('per01:'+per01.name);
+        person.say();
+        per01.say();
+
+        console.log('2.per02 改变*******');
+        per01.name = '张三';
+        per01.age = 31;
+        console.log('person:'+person.name);
+        console.log('per01:'+per01.name);
+
+        console.log('3. per01 say  方法改变------');
+        per01.say=function () {
+            console.log('我是per01');
+        };
+        person.say();
+        per01.say();
+
+        /**
+         * 原型变量是通过复制值进行赋值
+         *
+         * 直接量形式的变量是通过将变量的内存地址赋值给另一个变量
+         * */
+
+        /** 思考:函数传参是通过那种方式 ?*/
+
+        var a =10;
+        var b =2;
+        function gaibian(aa,bb) {
+            var c =2;
+            console.log(c*(aa+bb));
+        }
+        gaibian(a,b);
+        console.log(('a,b:',a+b));
+
+        /**
+         * 函数作用域
+         * 变量在函数内部作用,包括潜逃在函数内部的函数
+         * 函数调用完成,函数内的变量就从栈区销毁
+         *
+         *
+         * */
+
+        /**
+         * 数组
+         * */
+
+        /**通过构造函数的方式创建数组*/
+        var arr = new Array();//空数组,无长度。
+
+        /** 通过直接量的方式创建数组,也是空数组和数组arr一样*/
+        var arr01 = [];
+        arr01.length = 3;
+
+        /**设置一个有长度的数组*/
+        var arr02 = new Array(3);//这是一个有长度的数组,只是内存会提前分配。效率会提高,其他的和空数组一样。
+
+        /**设置含有一个元素的数组,元素值为3*/
+        var arr03 = [3,5,7];
+        console.log(arr03);
+        console.log(typeof (arr03));
+//        console.log(arr03['1']);
+        /**
+         * 在javascript中数组是特殊的对象,这个对象的属性名就是数组下标字符串类型。
+         * */
+        console.log(arr02.length);
+        /**稀疏数组*/
+        arr02[8] = 'four';
+        console.log(arr02.length);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

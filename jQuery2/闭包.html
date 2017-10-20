@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+    <script>
+        var a  =2,b=10;
+        function sum(num1,num2) {
+            var c = 2;
+            var result = c*(num1+num2);
+            function double() {
+                return result;
+            }
+            /**闭包:在一个函数内部返回一个嵌套函数,而且潜逃函数内部访问了外部函数的变量。此时,这个变量在外部函数调用完成后,不会被销毁 ,因为它还被引用*/
+            //返回的是double函数的首地址
+            return double;
+        }
+        var d = sum(a,b);
+        var resu = d();
+        console.log(resu);
+        console.log(d());
+
+        /**
+         * 函数自调用*/
+//        function doHomeword() {
+//            console.log('做作业');
+//        }
+        (function (a,b) {
+            console.log('啊SD法国红酒');
+        })(2,3);
+        /**函数自调用通常和闭包在一起使用*/
+        (function () {
+            var value = 3;
+            function close(n) {
+                console.log(value*n);
+            }
+            return close;
+        })()(2);
+        //第一个()是调用的匿名函数,第2个（2)是调用的匿名函数返回的函数close.
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position属性</title>
+    <style type="text/css">
+
+        body{
+            height: 3000px;
+        }
+        .div01 {
+
+            /*当这个值为relative的时候,
+            就会回相对于自己在原来文档流中的位置进行定位,
+            不会脱离文档流*/
+
+            /*当这个值为*/
+            position: relative;
+            /*top: 10px;*/
+            left: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+
+        .big{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+        .small{
+            width: 50px;
+            height: 50px;
+            background-color: #4caf50;
+
+            /*
+                这个属性为absolute,包含块是祖先元素中,含有position属性,且属性值为
+                relative, absolute,fixed,中的元素,就相对于这个元素浮动,在这个列子中,
+                class=small的div就是相对于class=big 的div浮动
+            */
+            position: absolute;
+
+            top: 300px;
+            left: 300px;
+        }
+        .position-fixed{
+
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+            /*
+               相对于初始包含块,也就是浏览器的左上脚的原点位置进行定位
+            */
+            position: fixed;
+            top: 400px;
+            left: 850px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div01">
+        div01
+    </div>
+    <span>this is a text</span>
+
+    <div class="big">
+        <div class="small">
+
+        </div>
+    </div>
+
+    <div class="position-fixed">
+
+    </div>
+</body>
+</html>

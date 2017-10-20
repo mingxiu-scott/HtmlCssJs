@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兄弟选择器</title>
+    <style>
+
+        /*p + span{*/
+            /*color: red;*/
+        /*}*/
+        /*
+            兄弟选择器,选择同一个父元素下的后面的第一个兄弟元素
+            就如上面,选择p元素后面兄弟的第一个span元素
+        */
+        p ~ span{
+            color: red;
+        }
+        /*
+            选择兄弟中的后面的所有元素
+        */
+    </style>
+</head>
+<body>
+    <div class="outside">
+       <p>text in p</p>
+        <span>text in span</span>
+        <br>
+        <span>text in span2</span>
+    </div>
+</body>
+</html>

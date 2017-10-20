@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text-align</title>
+    <style type="text/css">
+        .div1 {
+            width: 100px;
+            height: 100px;
+
+            /*设置元素不能被用户选中的属性*/
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            /*
+                相对于块级元素为父类的文本内容的居中,在一行内
+                它只控制文本内容的居中,不控制元素自己的对齐
+            */
+            text-align: center;
+            border: 1px solid red;
+
+            background-color: silver;
+        }
+        .show{
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1" onclick="myFunction()" id="mydiv">
+        s
+    </div>
+    <script>
+        function myFunction() {
+        //点击切换div的修饰类
+            var div1 = document.getElementById("mydiv");
+            div1.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

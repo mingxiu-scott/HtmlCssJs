@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #4caf50;
+            margin: 5px;
+            border: 5px solid red;
+        }
+        .div2{
+            float: right;
+            /*
+              没有加这个属性之前,该div就会按照默认的流布局在摆放,
+              添加了float:right; 之后,div2就会脱离原来的位置,走向右变(只是在
+              原来文档流的位置向左或者是右边浮动),然后在div下面的span 元素会自动
+              去到原来的div2的位置(因为脱离了文档流,这个位置空了,所以,其他元素会补上这个空位)
+            */
+        }
+
+        #text{
+            background-color: gold;
+            float: right;
+            /*
+                浮动的元素会在离他最近的块级元素元素中浮动,就如下面的例子:
+                id=text的span 被span元素包围,但是他浮动的时候并不是根据它浮动的,
+                而是根据祖先元素中的离他最近的快级元素,也就是class=div2的元素浮动
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="div01">
+        <span>
+            some text
+            some text
+            some text
+            some text
+            some text
+            some text
+            some
+            <span id="text">this is first div</span>
+        </span>
+    </div>
+    <div class="div2">
+        this is second div
+    </div>
+    <span>this is text in the div bottom</span>
+</body>
+</html>

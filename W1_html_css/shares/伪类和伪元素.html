@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类和伪元素</title>
+    <style>
+        /*p > i:first-child{*/
+            /*color: red;*/
+        /*}*/
+        /*
+            :first-child这个伪类选择器,相当于给后面p的第一个i加了一个类
+            如<i class="first-child">,和上面的效果一样
+        */
+
+        p:first-letter{
+            color: red;
+        }
+        /*
+            :first-letter这个是为元素选择器,想当于<i><span class="first-letter">f<span>irst<i>
+            然后再加样式,相当于再加上一个元素了
+        */
+    </style>
+</head>
+<body>
+<!---->
+<p>
+    <i>first</i>
+    <i>second</i>
+</p>
+<!--<div class="div01">-->
+    <!--<span>i am man</span>-->
+<!--</div>-->
+</body>
+</html>

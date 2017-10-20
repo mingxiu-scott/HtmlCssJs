@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flow</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        ul#flow{
+            position: relative;
+            padding: 0;
+            margin: 0 auto;
+            list-style-type: none;
+        }
+        #flow > li{
+            position: absolute;
+            width: 200px;
+            text-align: center;
+            -webkit-transition:all 1s;
+            -moz-transition: all 1s;
+            -ms-transition: all 1s;
+            -o-transition: all 1s;
+            transition: all 1s;
+        }
+        #flow > li > img{
+            width: 100%;
+            vertical-align: top;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/test.js"></script>
+</head>
+<body >
+<ul id="flow">
+
+</ul>
+</body>
+</html>

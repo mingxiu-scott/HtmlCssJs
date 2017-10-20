@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动的方式</title>
+    <style>
+
+        /*.float-right {*/
+            /*float: right;*/
+        /*}*/
+        .big{
+            border: 13px solid gold;
+            overflow: hidden;
+            /*
+            设置两个div都向右浮动,然后利用下面的清除,class=big
+        的边框的宽度不变,达到清除的效果
+        */
+        }
+        .div1 {
+            background-color: #008cba;
+            width: 100px;
+            height: 100px;
+            float: right;
+
+        }
+
+        /*
+
+        清除浮动的第一种方式
+        设置两个div都向右浮动,然后利用下面的清除,class=big
+        的边框的宽度不变,达到清除的效果
+
+        */
+        /*.big::after {*/
+        /*content: "";*/
+        /*display: table;*/
+        /*clear: right;*/
+        /*}*/
+
+        .div2 {
+            border: 3px solid red;
+            width: 100px;
+            height: 100px;
+            float: right;
+            /*在浮动元素的下一个块元素清除div1中的浮动*/
+            /*clear: both;*/
+
+        }
+
+        /*
+            当div1 div2都是设置浮动的时候,
+            发现它们都会脱离原来的文档流,向右浮动,
+            当我们想实现不让div3向上浮动到div1,div2原来的文档流的地方,
+            那么我们可以进行清除浮动
+        */
+    </style>
+</head>
+<body>
+<div class="big">
+    <div class="div1">
+        div1
+    </div>
+    <!--
+        清除浮动的第二种方式,这个只设置div1浮动
+        在要清除的浮动的元素下方添加一个空div
+    -->
+    <!--<div style="clear: both"></div>-->
+    <div class="div2">
+        div2sdfghj
+    </div>
+
+</div>
+</body>
+</html>

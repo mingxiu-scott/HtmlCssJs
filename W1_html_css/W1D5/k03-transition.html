@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition属性</title>
+    <style>
+        .div01{
+            background-color: gold;
+            width: 100px;
+            height: 100px;
+            /*transform: rotate(30deg);*/
+            /*
+
+            定义过渡的属性,在这个demo中,是定义了它旋转的过渡时间为3s
+            并不像没有设置一样,一下子就会跳出来了.
+
+            语法:
+            transition:(盒子的熟悉如width,hight) width (时间)s
+            不写前面的属性,就是代表所有的属性
+            */
+            transition: .1s;
+        }
+        .div01:hover{
+
+            transform: rotate(90deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div01">
+    </div>
+</body>
+</html>

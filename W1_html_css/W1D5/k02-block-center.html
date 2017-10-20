@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块元素居中</title>
+    <style>
+        .big{
+            width: 600px;
+            height: 600px;
+            background-color: silver;
+
+            position: relative;
+        }
+        .small{
+
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+            /*
+                使用绝对定位来对块级元素来进行居中:
+                首先让父元素成为该元素的包含块,然后在相对父元素进行定位,
+                如下面的代码,进行top和left设置的时候,
+                发现并是绝对的居中,会有偏差,就用ransform:属性进行调整,
+                把偏移过多的位置调整过来,代码如下
+            */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="big">
+        <div class="small">
+            this is the center element
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>::after元素</title>
+    <style>
+        .div01{
+            width: 400px;
+            height: 400px;
+            background-color: #555555;
+        }
+        /*伪类::after元素,相当于一个元素但又不是元素,
+        用来在元素的最后面添加一些文本内容和经常用来清除浮动*/
+        .div01::after{
+            content: "this is context in ::after";
+            background-color: gold;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div01">
+        text in div01
+    </div>
+</body>
+</html>

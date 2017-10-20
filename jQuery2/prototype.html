@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+    <script>
+
+        function Person(name,age) {
+            //this代表什么谁?
+            /**this代表创建出来的实例对象,例如per01。*/
+            this.name = name;
+            this.age =age;
+            console.log(this);
+            this.say = function () {
+                console.log('I am ' + this.name + '.');
+            }
+        }
+       var  pp = {
+            name:'ttt'
+        }
+
+        //使用person构造函数创建一个实例(instrance)对象
+        var per01 = new Person('tom',13);
+        console.log(per01.name);
+        per01.say();
+        /** **************************/
+        var per02 = new Person('张三',23);
+        per02.say();
+
+        /** 给per01添加个属性*/
+        per01.work = function () {
+            console.log(this.name+'collage student');
+        }
+        console.log(per01);
+        console.log(per02);
+        per01.work();
+        /**思考:per02是否可以调用work方法*/
+//        per02.work();//会报错
+
+        Person.doHomeWork = function () {
+            console.log('做作业11');
+        }
+        /**使用实例对象调用doHomeWork方法*/
+        var per03 = new Person();
+//        per03.doHomeWork();
+        Person.doHomeWork();
+
+        /** 原型 prototype*/
+        Person.prototype.doHomework = function () {
+            console.log(this.name+'做作业22');
+        };
+        per01.doHomework();
+        per02.doHomework();
+        Person.doHomeWork();
+        console.log(pp[name]);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
